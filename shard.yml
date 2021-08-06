@@ -1,0 +1,13 @@
+name: crystal-blackjack
+version: 0.1.0
+
+authors:
+  - Santiago Bosio <santiago.bosio@gmail.com>
+
+targets:
+  crystal-blackjack:
+    main: src/crystal-blackjack.cr
+
+crystal: 1.0.0
+
+license: MIT
