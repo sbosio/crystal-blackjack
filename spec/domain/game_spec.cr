@@ -39,6 +39,16 @@ module Domain
           game.player_hand.size.should eq(2)
         end
       end
+
+      describe "dealer hand" do
+        it "has two cards" do
+          game = Game.new
+
+          game.start
+
+          game.dealer_hand.size.should eq(2)
+        end
+      end
     end
   end
 end

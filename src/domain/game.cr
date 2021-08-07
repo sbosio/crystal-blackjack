@@ -9,6 +9,7 @@ module Domain
 
     def start
       2.times { player_hand.push Card.new }
+      2.times { dealer_hand.push Card.new }
     end
   end
 end
