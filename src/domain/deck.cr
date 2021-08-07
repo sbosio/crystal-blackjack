@@ -12,5 +12,9 @@ module Domain
         cards.shuffle
       end
     end
+
+    def draw_card
+      cards.pop
+    end
   end
 end
