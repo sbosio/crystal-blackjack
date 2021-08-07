@@ -6,5 +6,9 @@ module Domain
 
     def initialize
     end
+
+    def start
+      2.times { player_hand.push Card.new }
+    end
   end
 end
