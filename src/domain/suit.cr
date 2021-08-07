@@ -6,7 +6,7 @@ module Domain
     Spades
 
     def symbol
-      ["♥️", "♦️",  "♣︎", "♠︎"].index(self.value)
+      ["♥️", "♦️", "♣︎", "♠︎"].index(self.value)
     end
   end
 end
