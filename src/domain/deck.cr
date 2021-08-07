@@ -2,6 +2,6 @@ require "../domain"
 
 module Domain
   class Deck
-    getter cards = [Card.new("8", "dummy_suit")]
+    getter cards = [Card.new("8", "♦️")]
   end
 end
