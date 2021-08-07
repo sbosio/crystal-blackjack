@@ -18,6 +18,9 @@ module Domain
 
         deck.cards.size.should eq(51)
       end
+
+      # Check that it returns the top card
+      # For that we need to control the cards in the deck
     end
   end
 end
