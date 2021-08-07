@@ -6,7 +6,7 @@ module Domain
 
     def initialize
       Card::VALID_SUITES.each do |suit|
-        Card::VALID_RANKS.each do |rank|
+        Rank.each do |rank|
           cards.push(Card.new(rank, suit))
         end
         cards.shuffle

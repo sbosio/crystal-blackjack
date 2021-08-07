@@ -2,9 +2,6 @@ require "../../src/domain"
 
 module Domain
   describe Game do
-    #
-    # Initially the player and dealer hands have no cards and the deck isn't empty.
-    #
     context "with a new game" do
       describe "player hand" do
         it "has no cards" do
