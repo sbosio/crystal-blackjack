@@ -5,7 +5,7 @@ module Domain
     getter cards = [] of Card
 
     def initialize
-      Card::VALID_SUITES.each do |suit|
+      Suit.each do |suit|
         Rank.each do |rank|
           cards.push(Card.new(rank, suit))
         end

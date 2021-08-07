@@ -7,8 +7,8 @@ module Domain
     getter deck = Deck.new
 
     def start
-      2.times { player_hand.push Card.new(Rank::Eight, "♦️") }
-      2.times { dealer_hand.push Card.new(Rank::Eight, "♦️") }
+      2.times { player_hand.push Card.new(Rank::Eight, Suit::Diamonds) }
+      2.times { dealer_hand.push Card.new(Rank::Eight, Suit::Diamonds) }
     end
   end
 end
