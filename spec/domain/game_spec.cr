@@ -22,6 +22,9 @@ module Domain
 
     context "when the game starts" do
       describe "player hand" do
+        # This has to change, it is dealt the top two cards from the deck
+        # For that we need to control the deck to test if he receives
+        # the right cards.
         it "has two cards" do
           game = Game.new
 
