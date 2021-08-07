@@ -11,6 +11,14 @@ module Domain
           game.player_hand.should be_empty
         end
       end
+
+      describe "dealer hand" do
+        it "has no cards" do
+          game = Game.new
+
+          game.dealer_hand.should be_empty
+        end
+      end
     end
   end
 end
