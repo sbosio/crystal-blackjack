@@ -50,6 +50,16 @@ module Domain
 
           game.dealer_hand.size.should eq(2)
         end
+
+        it "is dealt the third and fourth topmost cards from the deck" do
+          deck = Stub::Deck.with_four_known_cards
+          game = Game.new(deck)
+
+          game.start
+
+          game.dealer_hand.should contain(Card.new(Rank::Eight, Suit::Spades))
+          game.dealer_hand.should contain(Card.new(Rank::Nine, Suit::Clubs))
+        end
       end
     end
   end
