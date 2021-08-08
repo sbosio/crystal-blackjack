@@ -1,4 +1,5 @@
 require "../../src/domain"
+require "./stub/deck"
 
 module Domain
   describe Deck do
@@ -19,8 +20,13 @@ module Domain
         deck.cards.size.should eq(51)
       end
 
-      # Check that it returns the top card
-      # For that we need to control the cards in the deck
+      it "returns the top card from the deck" do
+        deck = Stub::Deck.with_four_known_cards
+
+        card = deck.draw_card
+
+        card.should eq(Card.new(Rank::Ten, Suit::Hearts))
+      end
     end
   end
 end

@@ -1,8 +1,13 @@
 module Domain
   class Card
-    def initialize(rank : Rank, suit : Suit)
-      @rank = rank
-      @suit = suit
+    getter :rank
+    getter :suit
+
+    def initialize(@rank : Rank, @suit : Suit)
+    end
+
+    def ==(other : Card)
+      @rank == other.rank && @suit == other.suit
     end
   end
 end
