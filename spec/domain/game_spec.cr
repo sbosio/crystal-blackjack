@@ -1,4 +1,5 @@
 require "../../src/domain"
+require "./stub/deck"
 
 module Domain
   describe Game do
@@ -22,15 +23,22 @@ module Domain
 
     context "when the game starts" do
       describe "player hand" do
-        # This has to change, it is dealt the top two cards from the deck
-        # For that we need to control the deck to test if he receives
-        # the right cards.
         it "has two cards" do
           game = Game.new
 
           game.start
 
           game.player_hand.size.should eq(2)
+        end
+
+        it "is dealt the two topmost cards from the deck" do
+          deck = Stub::Deck.with_four_known_cards
+          game = Game.new(deck)
+
+          game.start
+
+          game.player_hand.should contain(Card.new(Rank::Ten, Suit::Hearts))
+          game.player_hand.should contain(Card.new(Rank::Queen, Suit::Spades))
         end
       end
 

@@ -17,7 +17,7 @@ module Domain
 
         deck.draw_card
 
-        deck.cards.size.should eq(51)
+        deck.cards.size.should eq(52 - 1)
       end
 
       it "returns the top card from the deck" do

@@ -15,8 +15,8 @@ module Domain
     end
 
     def start
-      2.times { player_hand.push Card.new(Rank::Eight, Suit::Diamonds) }
-      2.times { dealer_hand.push Card.new(Rank::Eight, Suit::Diamonds) }
+      2.times { @player_hand.push deck.draw_card }
+      2.times { @dealer_hand.push Card.new(Rank::Eight, Suit::Diamonds) }
     end
   end
 end
