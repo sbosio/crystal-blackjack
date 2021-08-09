@@ -36,5 +36,17 @@ module Domain
         deck.should_not contain(Card.new(Rank::Ten, Suit::Hearts))
       end
     end
+
+    describe "deal card to hand" do
+      it "removes one card from the deck and adds one card to the hand" do
+        deck = Deck.new
+        hand = Hand.new
+
+        deck.deal_card_to(hand)
+
+        deck.size.should eq(52 - 1)
+        hand.size.should eq(0 + 1)
+      end
+    end
   end
 end

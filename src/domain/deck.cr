@@ -17,6 +17,10 @@ module Domain
       @cards.pop
     end
 
+    def deal_card_to(hand : Hand)
+      hand.add_card(draw_card)
+    end
+
     delegate size, to: @cards
     delegate includes?, to: @cards
   end
