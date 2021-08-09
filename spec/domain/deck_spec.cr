@@ -11,32 +11,6 @@ module Domain
       end
     end
 
-    describe "draw card" do
-      it "is left with one less card" do
-        deck = Deck.new
-
-        deck.draw_card
-
-        deck.size.should eq(52 - 1)
-      end
-
-      it "returns the top card from the deck" do
-        deck = Stub::Deck.with_four_known_cards
-
-        card = deck.draw_card
-
-        card.should eq(Card.new(Rank::Ten, Suit::Hearts))
-      end
-
-      it "removes the top card from the deck" do
-        deck = Stub::Deck.with_four_known_cards
-
-        card = deck.draw_card
-
-        deck.should_not contain(Card.new(Rank::Ten, Suit::Hearts))
-      end
-    end
-
     describe "deal card to hand" do
       it "removes one card from the deck and adds one card to the hand" do
         deck = Deck.new

@@ -13,12 +13,8 @@ module Domain
       end
     end
 
-    def draw_card
-      @cards.pop
-    end
-
     def deal_card_to(hand : Hand)
-      hand.add_card(draw_card)
+      hand.add_card(@cards.pop)
     end
 
     delegate size, to: @cards

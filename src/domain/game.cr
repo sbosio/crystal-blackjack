@@ -16,8 +16,8 @@ module Domain
     end
 
     def start
-      2.times { @player_hand.add_card(deck.draw_card) }
-      2.times { @dealer_hand.add_card(deck.draw_card) }
+      2.times { deck.deal_card_to(@player_hand) }
+      2.times { deck.deal_card_to(@dealer_hand) }
     end
 
     def player_busted?
@@ -25,7 +25,7 @@ module Domain
     end
 
     def player_hits
-      @player_hand.add_card(deck.draw_card)
+      deck.deal_card_to(@player_hand)
     end
   end
 end
