@@ -27,6 +27,14 @@ module Domain
 
         card.should eq(Card.new(Rank::Ten, Suit::Hearts))
       end
+
+      it "removes the top card from the deck" do
+        deck = Stub::Deck.with_four_known_cards
+
+        card = deck.draw_card
+
+        deck.cards.should_not contain(Card.new(Rank::Ten, Suit::Hearts))
+      end
     end
   end
 end
