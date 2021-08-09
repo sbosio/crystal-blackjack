@@ -9,7 +9,7 @@ module Domain
       it "has no cards" do
         hand = Hand.new
 
-        hand.cards.should be_empty
+        hand.should be_empty
       end
     end
 
@@ -19,7 +19,7 @@ module Domain
 
         hand.add_card(DUMMY_CARD)
 
-        hand.cards.size.should eq(1)
+        hand.size.should eq(1)
       end
 
       it "contains the card sent as parameter" do
@@ -27,7 +27,7 @@ module Domain
 
         hand.add_card(DUMMY_CARD)
 
-        hand.cards.should contain(DUMMY_CARD)
+        hand.should contain(DUMMY_CARD)
       end
     end
 
@@ -37,7 +37,7 @@ module Domain
 
         2.times { hand.add_card(DUMMY_CARD) }
 
-        hand.cards.size.should eq(2)
+        hand.size.should eq(2)
       end
     end
 
@@ -46,9 +46,7 @@ module Domain
         it "returns the sum of all individual card values" do
           hand = Stub::Hand.queen_three_and_six
 
-          value = hand.value
-
-          value.should eq(10 + 3 + 6)
+          hand.value.should eq(10 + 3 + 6)
         end
       end
 
@@ -56,9 +54,7 @@ module Domain
         it "counts the ace as valued at 11" do
           hand = Stub::Hand.ace_three_and_six
 
-          value = hand.value
-
-          value.should eq(11 + 3 + 6)
+          hand.value.should eq(11 + 3 + 6)
         end
       end
 
@@ -66,9 +62,7 @@ module Domain
         it "counts the ace as valued at 1" do
           hand = Stub::Hand.ace_three_and_eight
 
-          value = hand.value
-
-          value.should eq(1 + 3 + 8)
+          hand.value.should eq(1 + 3 + 8)
         end
       end
     end
