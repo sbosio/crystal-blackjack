@@ -24,6 +24,15 @@ module Domain
           ]
           Hand.new(cards)
         end
+
+        def self.ace_three_and_eight
+          cards = [
+            Card.new(Rank::Ace, DUMMY_SUIT),
+            Card.new(Rank::Three, DUMMY_SUIT),
+            Card.new(Rank::Eight, DUMMY_SUIT)
+          ]
+          Hand.new(cards)
+        end
       end
     end
   end

@@ -61,6 +61,16 @@ module Domain
           value.should eq(11 + 3 + 6)
         end
       end
+
+      context "with one ace and other cards exceeding 21" do
+        it "counts the ace as valued at 1" do
+          hand = Stub::Hand.ace_three_and_eight
+
+          value = hand.value
+
+          value.should eq(1 + 3 + 8)
+        end
+      end
     end
   end
 end
