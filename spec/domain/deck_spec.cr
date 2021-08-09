@@ -47,6 +47,16 @@ module Domain
         deck.size.should eq(52 - 1)
         hand.size.should eq(0 + 1)
       end
+
+      it "removes the top card from the deck and adds it to the deck" do
+        deck = Stub::Deck.with_four_known_cards
+        hand = Hand.new
+
+        deck.deal_card_to(hand)
+
+        deck.should_not contain(Card.new(Rank::Ten, Suit::Hearts))
+        hand.should contain(Card.new(Rank::Ten, Suit::Hearts))
+      end
     end
   end
 end
