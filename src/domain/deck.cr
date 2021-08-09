@@ -2,19 +2,22 @@ require "../domain"
 
 module Domain
   class Deck
-    getter cards = [] of Card
-
     def initialize
+      @cards = [] of Card
+
       Suit.each do |suit|
         Rank.each do |rank|
-          cards.push(Card.new(rank, suit))
+          @cards.push(Card.new(rank, suit))
         end
-        cards.shuffle
+        @cards.shuffle
       end
     end
 
     def draw_card
-      cards.pop
+      @cards.pop
     end
+
+    delegate size, to: @cards
+    delegate includes?, to: @cards
   end
 end

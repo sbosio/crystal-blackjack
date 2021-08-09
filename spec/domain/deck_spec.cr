@@ -7,7 +7,7 @@ module Domain
       it "has 52 cards" do
         deck = Deck.new
 
-        deck.cards.size.should eq(52)
+        deck.size.should eq(52)
       end
     end
 
@@ -17,7 +17,7 @@ module Domain
 
         deck.draw_card
 
-        deck.cards.size.should eq(52 - 1)
+        deck.size.should eq(52 - 1)
       end
 
       it "returns the top card from the deck" do
@@ -33,7 +33,7 @@ module Domain
 
         card = deck.draw_card
 
-        deck.cards.should_not contain(Card.new(Rank::Ten, Suit::Hearts))
+        deck.should_not contain(Card.new(Rank::Ten, Suit::Hearts))
       end
     end
   end
