@@ -5,6 +5,7 @@ module Domain
     getter player_hand = [] of Card
     getter dealer_hand = [] of Card
     getter :deck
+    @player_busted = false
 
     def initialize
       @deck = Deck.new
@@ -17,6 +18,10 @@ module Domain
     def start
       2.times { @player_hand.push deck.draw_card }
       2.times { @dealer_hand.push deck.draw_card }
+    end
+
+    def player_busted?
+      @player_busted
     end
   end
 end

@@ -61,6 +61,14 @@ module Domain
           game.dealer_hand.should contain(Card.new(Rank::Nine, Suit::Clubs))
         end
       end
+
+      describe "player busted" do
+        it "is false" do
+          game = Game.new
+
+          game.player_busted?.should be_false
+        end
+      end
     end
 
     context "player turn" do
