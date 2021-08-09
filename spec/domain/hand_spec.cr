@@ -20,6 +20,14 @@ module Domain
 
         hand.cards.size.should eq(1)
       end
+
+      it "contains the card sent as a parameter" do
+        hand = Hand.new
+
+        hand.add_card(DUMMY_CARD)
+
+        hand.cards.should contain(DUMMY_CARD)
+      end
     end
   end
 end

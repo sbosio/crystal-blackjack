@@ -5,7 +5,7 @@ module Domain
     getter cards = [] of Card
 
     def add_card(card : Card)
-      cards.push Card.new(Rank::Ace, Suit::Hearts)
+      cards.push card
     end
   end
 end
