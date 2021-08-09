@@ -3,6 +3,10 @@ module Domain
     class Deck < Domain::Deck
       DUMMY_SUIT = Suit::Clubs
 
+      def initialize
+        super
+      end
+
       def initialize(cards : Array(Card))
         @cards = cards
       end

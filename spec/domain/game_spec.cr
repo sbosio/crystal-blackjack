@@ -72,23 +72,31 @@ module Domain
     end
 
     describe "player hits" do
-      it "receives another card" do
-        game = Game.new
-        game.start
+      context "player isn't busted" do
+        it "receives another card" do
+          game = Stub::Game.started
 
-        game.player_hits
+          game.player_hits
 
-        game.player_hand.size.should eq(3)
+          game.player_hand.size.should eq(3)
+        end
       end
 
-      context "goes busted" do
+      context "player goes busted" do
         it "sets player_busted flag to true" do
           game = Stub::Game.player_hits_and_goes_busted
-          game.start
 
           game.player_hits
 
           game.player_busted?.should be_true
+        end
+      end
+
+      context "player already busted" do
+        it "raises a RuntimeError exception" do
+          game = Stub::Game.with_player_busted
+
+          expect_raises(RuntimeError, "Player is already busted!") { game.player_hits }
         end
       end
     end

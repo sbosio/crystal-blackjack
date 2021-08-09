@@ -20,6 +20,8 @@ module Domain
     end
 
     def player_hits
+      raise RuntimeError.new("Player is already busted!") if @player_busted
+
       @deck.deal_card_to(@player_hand)
       @player_busted = true if player_hand.value > 21
     end
