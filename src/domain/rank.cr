@@ -28,6 +28,8 @@ module Domain
         [11, 1]
       elsif number_card?
         [number_card_value]
+      elsif face_card?
+        [10]
       end
     end
 
@@ -37,6 +39,10 @@ module Domain
 
     def number_card?
       (Rank::Two.value..Rank::Ten.value) === value
+    end
+
+    def face_card?
+      (Rank::Jack.value..Rank::King.value) === value
     end
 
     private def number_card_value

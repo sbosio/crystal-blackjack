@@ -51,6 +51,19 @@ module Domain
           values_high.should eq([10])
         end
       end
+
+      context "number card (with faces: Jack, Queen, King)" do
+        it "returns only one possible value: 10" do
+          card_low = Card.new(Rank::Jack, DUMMY_SUIT)
+          card_high = Card.new(Rank::King, DUMMY_SUIT)
+
+          values_low = card_low.values
+          values_high = card_high.values
+
+          values_low.should eq([10])
+          values_high.should eq([10])
+        end
+      end
     end
   end
 end
