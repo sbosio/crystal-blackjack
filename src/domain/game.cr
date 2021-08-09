@@ -23,5 +23,9 @@ module Domain
     def player_busted?
       @player_busted
     end
+
+    def player_hits
+      @player_hand.push deck.draw_card
+    end
   end
 end
