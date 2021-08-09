@@ -10,8 +10,6 @@ module Domain
       @rank == other.rank && @suit == other.suit
     end
 
-    def values
-      return [11, 1]
-    end
+    delegate values, to: @rank
   end
 end
