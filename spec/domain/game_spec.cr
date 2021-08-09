@@ -1,5 +1,5 @@
 require "../../src/domain"
-require "./stub/deck"
+require "./stub/game"
 
 module Domain
   describe Game do
@@ -32,8 +32,7 @@ module Domain
         end
 
         it "is dealt the two topmost cards from the deck" do
-          deck = Stub::Deck.with_four_known_cards
-          game = Game.new(deck)
+          game = Stub::Game.with_known_deck_of_four_cards
 
           game.start
 
@@ -52,8 +51,7 @@ module Domain
         end
 
         it "is dealt the third and fourth topmost cards from the deck" do
-          deck = Stub::Deck.with_four_known_cards
-          game = Game.new(deck)
+          game = Stub::Game.with_known_deck_of_four_cards
 
           game.start
 
@@ -81,6 +79,17 @@ module Domain
         game.player_hits
 
         game.player_hand.size.should eq(3)
+      end
+
+      context "goes busted" do
+        it "sets player_busted flag to true" do
+          game = Stub::Game.player_hits_and_goes_busted
+          game.start
+
+          game.player_hits
+
+          game.player_busted?.should be_true
+        end
       end
     end
   end

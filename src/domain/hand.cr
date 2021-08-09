@@ -9,10 +9,10 @@ module Domain
     end
 
     def value
-      value = @cards.map{ |c| c.values.first }.sum
+      value = @cards.map { |c| c.values.first }.sum
       return value unless value > 21
 
-      @cards.map{ |c| c.values.fetch(1, c.values.first) }.sum
+      @cards.map { |c| c.values.fetch(1, c.values.first) }.sum
     end
 
     delegate empty?, to: @cards
