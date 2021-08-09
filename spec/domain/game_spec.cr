@@ -62,5 +62,15 @@ module Domain
         end
       end
     end
+
+    context "player turn" do
+      #
+      # Player turn starts with the two initial cards. In that situation,
+      # the player can't be busted (there's no way to have a hand value
+      # greater than 21 with two cards).
+      # Player has two options: hit (ask one more card) or stand.
+      # If player stands or hits and get busted, player turn ends.
+      #
+    end
   end
 end
