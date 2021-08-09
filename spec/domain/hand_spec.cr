@@ -1,4 +1,5 @@
 require "../../src/domain"
+require "./stub/hand"
 
 module Domain
   DUMMY_CARD = Card.new(Rank::Jack, Suit::Spades)
@@ -37,6 +38,18 @@ module Domain
         2.times { hand.add_card(DUMMY_CARD) }
 
         hand.cards.size.should eq(2)
+      end
+    end
+
+    describe "hand value" do
+      context "without aces" do
+        it "returns the sum of all individual card values" do
+          hand = Stub::Hand.queen_three_and_six
+
+          value = hand.value
+
+          value.should eq(10 + 3 + 6)
+        end
       end
     end
   end

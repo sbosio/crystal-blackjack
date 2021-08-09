@@ -1,9 +1,4 @@
 module Domain
-  SYMBOLS = [
-    "A", "2", "3", "4", "5", "6", "7",
-    "8", "9", "10", "J", "Q", "K"
-  ]
-
   enum Rank
     Ace
     Two
@@ -20,7 +15,10 @@ module Domain
     King
 
     def symbol : String
-      SYMBOLS.dig(value)
+      [
+        "A", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "J", "Q", "K"
+      ].dig(value)
     end
 
     def values
@@ -30,6 +28,8 @@ module Domain
         [number_card_value]
       elsif face_card?
         [10]
+      else
+        raise Exception.new("Undefined cart type")
       end
     end
 
