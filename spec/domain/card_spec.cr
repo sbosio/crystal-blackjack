@@ -27,5 +27,17 @@ module Domain
         card.==(other_card).should be_false
       end
     end
+
+    describe "card values" do
+      context "ace card" do
+        it "returns two possible values: 11 and 1" do
+          card = Card.new(Rank::Ace, DUMMY_SUIT)
+
+          values = card.values
+
+          values.should eq([11, 1])
+        end
+      end
+    end
   end
 end
