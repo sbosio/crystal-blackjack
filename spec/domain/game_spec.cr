@@ -92,6 +92,16 @@ module Domain
         end
       end
 
+      context "player doesn't go busted" do
+        it "keeps player_busted flag in false" do
+          game = Stub::Game.player_hits_and_doesn_t_go_busted
+
+          game.player_hits
+
+          game.player_busted?.should be_false
+        end
+      end
+
       context "player already busted" do
         it "raises a RuntimeError exception" do
           game = Stub::Game.with_player_busted

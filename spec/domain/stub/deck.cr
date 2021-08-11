@@ -31,6 +31,17 @@ module Domain
         ]
         new(cards.reverse)
       end
+
+      def self.player_hits_and_doesn_t_go_busted
+        cards = [
+          Card.new(Rank::Ten, DUMMY_SUIT),
+          Card.new(Rank::Three, DUMMY_SUIT),
+          Card.new(Rank::Eight, DUMMY_SUIT),
+          Card.new(Rank::Nine, DUMMY_SUIT),
+          Card.new(Rank::Eight, DUMMY_SUIT),
+        ]
+        new(cards.reverse)
+      end
     end
   end
 end

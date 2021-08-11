@@ -20,6 +20,10 @@ module Domain
         new(Stub::Deck.with_four_known_cards)
       end
 
+      def self.player_hits_and_doesn_t_go_busted
+        new(Stub::Deck.player_hits_and_doesn_t_go_busted).tap { |game| game.start }
+      end
+
       def self.player_hits_and_goes_busted
         new(Stub::Deck.player_hits_and_goes_busted).tap { |game| game.start }
       end
