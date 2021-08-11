@@ -25,5 +25,8 @@ module Domain
       @deck.deal_card_to(@player_hand)
       @player_busted = true if player_hand.value > 21
     end
+
+    def player_stands
+    end
   end
 end

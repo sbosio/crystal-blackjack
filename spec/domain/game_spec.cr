@@ -110,5 +110,15 @@ module Domain
         end
       end
     end
+
+    describe "player stands" do
+      it "has the same number of cards" do
+        game = Stub::Game.started
+
+        game.player_stands
+
+        game.player_hand.size.should eq(2)
+      end
+    end
   end
 end
