@@ -112,12 +112,24 @@ module Domain
     end
 
     describe "player stands" do
-      it "has the same number of cards" do
-        game = Stub::Game.started
+      context "player already busted" do
+        it "raises a RuntimeError exception" do
+          game = Stub::Game.with_player_busted
 
-        game.player_stands
+          expect_raises(RuntimeError, "Player is already busted!") { game.player_stands }
+        end
+      end
 
-        game.player_hand.size.should eq(2)
+      context "player isn't busted" do
+        context "player hand" do
+          it "doesn't changes the number of cards" do
+            game = Stub::Game.started
+
+            game.player_stands
+
+            game.player_hand.size.should eq(2)
+          end
+        end
       end
     end
   end

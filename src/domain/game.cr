@@ -27,6 +27,7 @@ module Domain
     end
 
     def player_stands
+      raise RuntimeError.new("Player is already busted!") if @player_busted
     end
   end
 end
